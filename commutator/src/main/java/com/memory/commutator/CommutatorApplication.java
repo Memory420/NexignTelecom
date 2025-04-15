@@ -1,13 +1,20 @@
 package com.memory.commutator;
 
 import com.memory.commutator.Models.Abonent;
+import com.memory.commutator.Models.CDRecord;
 import com.memory.commutator.Repositories.AbonentRepository;
-import com.memory.commutator.Service.CDRService;
+import com.memory.commutator.Repositories.CDRecordRepository;
+import com.memory.commutator.Service.CallSimulationService;
+import com.memory.commutator.Utils.CallWorker;
+import com.memory.commutator.Utils.VirtualTimeWorker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @SpringBootApplication
@@ -26,18 +33,32 @@ public class CommutatorApplication implements CommandLineRunner {
 	);
 
 	private final AbonentRepository abonentRepository;
-	private final CDRService cdrService;
+	private final CallSimulationService callSimulationService;
+	private final CDRecordRepository cdRecordRepository;
 
-	public CommutatorApplication(AbonentRepository abonentRepository, CDRService cdrService) {
+
+	public CommutatorApplication(AbonentRepository abonentRepository, CallSimulationService callSimulationService, CDRecordRepository cdRecordRepository) {
 		this.abonentRepository = abonentRepository;
-		this.cdrService = cdrService;
-	}
+        this.callSimulationService = callSimulationService;
+        this.cdRecordRepository = cdRecordRepository;
+    }
 
 	@Override
 	public void run(String... args) {
 		System.out.println("Commutator started");
+
 		abonentRepository.saveAll(abonents);
-		cdrService.generateCDRRecordsAsync(100, 5);
+
+		List<Abonent> abonentsFromDb = abonentRepository.findAll();
+		List<CDRecord> cdrRecords = callSimulationService.runSimulation(abonentsFromDb, 5, 7);
+
+		for (CDRecord cdr : cdrRecords) {
+			System.out.println(cdr);
+		}
+
+		cdRecordRepository.saveAll(cdrRecords);
+		System.out.println("Всего отчётов: " + cdrRecords.size());
+		System.out.println("Симуляция завершена");
 	}
 
 	public static void main(String[] args) {

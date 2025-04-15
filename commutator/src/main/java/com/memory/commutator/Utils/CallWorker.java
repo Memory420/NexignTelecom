@@ -14,8 +14,6 @@ public class CallWorker implements VirtualTimeWorker{
     private final Random random = new Random();
     private ActiveCall currentCall = null;
 
-    private final double chanceToEndCall = 0.05;
-
     public CallWorker(List<Abonent> freeAbonents) {
         this.freeAbonents = freeAbonents;
         cdrBuffer = new ArrayList<>();
@@ -38,6 +36,7 @@ public class CallWorker implements VirtualTimeWorker{
             }
         } else {
             currentCall.increaseDuration();
+            double chanceToEndCall = 0.05;
             if (currentCall.getDuration() >= 15 && random.nextDouble() < chanceToEndCall) {
                 CDRecord record = new CDRecord(null, CallType.OUTGOING,
                         currentCall.getCaller(),
