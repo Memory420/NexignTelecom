@@ -1,4 +1,7 @@
-package com.memory.commutator.Utils;
+package com.memory.commutator.Util;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CallType {
     INCOMING("01"),
@@ -10,10 +13,12 @@ public enum CallType {
         this.code = code;
     }
 
+    @JsonValue
     public String getCode() {
         return code;
     }
 
+    @JsonCreator
     public static CallType fromCode(String code) {
         for (CallType type : CallType.values()) {
             if (type.getCode().equals(code)) {

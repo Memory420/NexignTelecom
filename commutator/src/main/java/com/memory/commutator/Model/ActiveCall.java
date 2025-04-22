@@ -1,6 +1,4 @@
-package com.memory.commutator.Utils;
-
-import com.memory.commutator.Models.Abonent;
+package com.memory.commutator.Model;
 
 import java.time.LocalDateTime;
 

@@ -1,1 +1,0 @@
-CDR сервис находится в ```commutator/src/main/java/com/memory/commutator```
