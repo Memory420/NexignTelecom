@@ -49,6 +49,6 @@ public class BrtApplication implements CommandLineRunner {
 
     @Bean
     public Queue cdrQueue() {
-        return new Queue("cdr.to.brt", false);
+        return new Queue("cdr.to.brt", true);
     }
 }
