@@ -1,5 +1,6 @@
 package com.memory.brt.config;
 
+import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -8,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RabbitListenerConfig {
+public class RabbitConfig {
     @Bean
     public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
@@ -28,5 +29,10 @@ public class RabbitListenerConfig {
         factory.setConnectionFactory(connectionFactory);
         factory.setMessageConverter(jsonConverter);
         return factory;
+    }
+
+    @Bean
+    public Queue cdrQueue() {
+        return new Queue("cdr.to.brt", true);
     }
 }

@@ -66,7 +66,8 @@ public class CallSimulation {
                     ))
                     .toList();
 
-            rabbit.convertAndSend("cdr.to.brt", dtoBatch);
+            rabbit.convertAndSend("", "cdr.to.brt", dtoBatch);
+            System.out.println("Записи отправлены");
         }
 
         return all;

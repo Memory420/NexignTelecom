@@ -1,8 +1,13 @@
-package com.memory.brt;
+package com.memory.hrs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BrtApplicationTests {
+class HrsApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
 }
