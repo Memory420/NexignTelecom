@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Симулирует звонки: создаёт, буферизует и отправляет CDR-записи при достижении заданного объёма.
+ */
 public class CallWorker implements VirtualTimeWorker {
     private final List<Abonent> generalAbonents;
 

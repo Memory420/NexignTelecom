@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 import java.util.List;
 
+
+/**
+ * Слушатель сообщений CDR: сохраняет записи звонков в базу.
+ */
 @Component
 public class CDRMessageListener implements CommandLineRunner {
     private final CDRecordRepository cdrRepository;

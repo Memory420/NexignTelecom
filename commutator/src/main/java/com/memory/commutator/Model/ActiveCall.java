@@ -2,6 +2,10 @@ package com.memory.commutator.Model;
 
 import java.time.LocalDateTime;
 
+/**
+ * Модель активного звонка.
+ * Следит за состоянием текущих вызовов абонентов.
+ */
 public class ActiveCall {
     private Abonent caller;
     private Abonent receiver;

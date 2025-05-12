@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * Сервис симуляции звонков.
+ * Генерирует случайные звонки и формирует CDR-файлы.
+ */
 public class CallSimulation {
     public static final List<Abonent> ABONENTS = List.of(
             new Abonent("79990111111", Operator.ROMASHKA),

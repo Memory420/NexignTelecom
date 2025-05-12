@@ -8,8 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 
+/**
+ * Слушатель ответов от HRS: обновляет балансы абонентов.
+ */
 @Order(2)
 @Component
 public class HRSMessageListener implements CommandLineRunner {

@@ -2,6 +2,10 @@ package com.memory.commutator.Model;
 
 import com.memory.commutator.Util.Operator;
 
+/**
+ * Сущность абонента для эмулятора коммутатора.
+ * Хранит msisdn, тариф и дату регистрации.
+ */
 public class Abonent {
     private String number;
     private Operator operator;
