@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AbonentRepository extends JpaRepository<Abonent, String> {
     Abonent findByNumber(String number);
+    boolean existsByNumber(String number);
 }

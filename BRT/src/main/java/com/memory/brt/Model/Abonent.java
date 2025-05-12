@@ -19,6 +19,7 @@ public class Abonent {
     public Abonent() {
     }
 
+
     public Abonent(String number, Operator operator) {
         this.number = number;
     }
