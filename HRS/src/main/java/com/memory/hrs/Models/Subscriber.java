@@ -26,6 +26,9 @@ public class Subscriber {
     @Column(name = "period_start", nullable = false)
     private LocalDate periodStart = LocalDate.now();
 
+    public Subscriber() {
+    }
+
     public Subscriber(String number, Tariff tariff, long minutesLeft, boolean requireMonthlyFeePay, LocalDate periodStart) {
         this.number = number;
         this.tariff = tariff;
@@ -68,5 +71,29 @@ public class Subscriber {
 
     public LocalDate getPeriodStart() {
         return periodStart;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setTariff(Tariff tariff) {
+        this.tariff = tariff;
+    }
+
+    public void setMinutesLeft(long minutesLeft) {
+        this.minutesLeft = minutesLeft;
+    }
+
+    public void setRequireMonthlyFeePay(boolean requireMonthlyFeePay) {
+        this.requireMonthlyFeePay = requireMonthlyFeePay;
+    }
+
+    public void setPeriodStart(LocalDate periodStart) {
+        this.periodStart = periodStart;
     }
 }

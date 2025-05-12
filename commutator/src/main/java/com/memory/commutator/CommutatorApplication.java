@@ -1,13 +1,16 @@
 package com.memory.commutator;
 
 import com.memory.commutator.Model.Abonent;
+import com.memory.commutator.Model.CDRecord;
 import com.memory.commutator.Service.CallSimulation;
+import com.memory.commutator.Util.CallType;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +29,13 @@ public class CommutatorApplication implements CommandLineRunner {
 		List<Abonent> abonents = new ArrayList<>(CallSimulation.ABONENTS);
 		CallSimulation callSimulation = new CallSimulation(rabbit);
 		callSimulation.runSimulation(abonents, 5, 7);
+		CDRecord cdr = new CDRecord(
+				CallType.INCOMING,
+				"79990444444",
+				"79880333333",
+				LocalDateTime.now().minusDays(1),
+				LocalDateTime.now().minusDays(1).plusMinutes(5));
+//		rabbit.convertAndSend("", "cdr.to.brt", cdr);
 	}
 }
 

@@ -52,7 +52,7 @@ public class CallSimulation {
         for (CallWorker w : workers) {
             all.addAll(w.getCdrBuffer());
         }
-        all.sort(Comparator.comparing(CDRecord::getEndTime).reversed());
+        all.sort(Comparator.comparing(CDRecord::getStartTime));
 
         for (int i = 0; i < all.size(); i += 10) {
             List<CDRecord> batch = new ArrayList<>(all.subList(i, Math.min(i+10, all.size())));

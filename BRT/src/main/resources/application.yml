@@ -11,9 +11,6 @@ spring:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
-  h2:
-    console:
-      enabled: true
   rabbitmq:
     host: localhost
     port: 5672

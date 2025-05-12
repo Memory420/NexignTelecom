@@ -32,6 +32,11 @@ public class RabbitConfig {
     }
 
     @Bean
+    public Queue brtToHrsQueue() {
+        return new Queue("brt.to.hrs", true);
+    }
+
+    @Bean
     public Queue brtQueue() {
         return new Queue("hrs.to.brt", true);
     }

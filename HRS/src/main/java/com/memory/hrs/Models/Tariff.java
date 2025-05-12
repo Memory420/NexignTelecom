@@ -43,4 +43,28 @@ public class Tariff {
                 ", monthlyFee=" + monthlyFee +
                 '}';
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public TariffType getType() {
+        return type;
+    }
+
+    public double getPriceToRomashka() {
+        return priceToRomashka;
+    }
+
+    public double getPriceToOthers() {
+        return priceToOthers;
+    }
+
+    public int getIncludedMinutes() {
+        return includedMinutes;
+    }
+
+    public double getMonthlyFee() {
+        return monthlyFee;
+    }
 }

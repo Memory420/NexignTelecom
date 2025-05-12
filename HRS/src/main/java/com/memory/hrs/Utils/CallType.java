@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CallType {
-    INCOMING("01"),
-    OUTGOING("02");
+    OUTGOING("01"),
+    INCOMING("02");
 
     private final String code;
 

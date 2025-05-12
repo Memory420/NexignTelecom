@@ -32,7 +32,19 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Queue cdrQueue() {
+    public Queue cdrToBrtQueue() {
         return new Queue("cdr.to.brt", true);
+    }
+    @Bean
+    public Queue brtToHrsQueue() {
+        return new Queue("brt.to.hrs", true);
+    }
+    @Bean
+    public Queue brtQueue() {
+        return new Queue("hrs.to.brt", true);
+    }
+    @Bean
+    public Queue test() {
+        return new Queue("test", true);
     }
 }

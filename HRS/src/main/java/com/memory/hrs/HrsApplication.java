@@ -17,9 +17,9 @@ import java.util.List;
 public class HrsApplication implements CommandLineRunner {
     public static List<Subscriber> INITIAL_SUBSCRIBERS(Tariff monthlyTariff, Tariff classicTariff) {
         return List.of(
-                new Subscriber("79990111111", monthlyTariff, 0L, false, LocalDate.now()),
-                new Subscriber("79990222222", monthlyTariff, 0L, false, LocalDate.now()),
-                new Subscriber("79990333333", monthlyTariff, 0L, false, LocalDate.now()),
+                new Subscriber("79990111111", monthlyTariff, 10L, false, LocalDate.now()),
+                new Subscriber("79990222222", monthlyTariff, 2L, false, LocalDate.now()),
+                new Subscriber("79990333333", monthlyTariff, 50L, false, LocalDate.now()),
                 new Subscriber("79990444444", classicTariff, 0L, false, LocalDate.now()),
                 new Subscriber("79990555555", classicTariff, 0L, false, LocalDate.now()),
                 new Subscriber("79990666666", classicTariff, 0L, false, LocalDate.now()),
@@ -61,5 +61,4 @@ public class HrsApplication implements CommandLineRunner {
         subscriberRepository.saveAll(INITIAL_SUBSCRIBERS(classic, monthlyFromDb));
         System.out.println(classicFromDb.toString());
     }
-
 }
